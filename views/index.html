@@ -1,0 +1,329 @@
+{% extends "./template.html" %}
+
+{% block content %}
+
+<div class="jumbotron" style="height: 100%; margin: 0; overflow: auto;">
+    <div class="row">
+        <div class="col">
+            <h1>Commands<a class="btn btn-outline-primary right" href="/config/" style="position: absolute; top: 0; right: 20px;">View Settings JSON</a></h1>
+            <table class="table">
+                <thead>
+                    <th>Command</th>
+                    <th colspan="3">Parameters</th>
+                    <th>Default Permissions</th>
+                    <th>Description</th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{ prefix }}help</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>User</td>
+                        <td>Posts a link to this page.</td>
+                    </tr>
+                    <tr>
+                        <td>{{ prefix }}prefix</td>
+                        <td>&lt;new prefix&gt;</td>
+                        <td></td>
+                        <td></td>
+                        <td>Admin*</td>
+                        <td>Change the command prefix.</td>
+                    </tr>
+                    <tr>
+                        <td>{{ prefix }}8ball</td>
+                        <td>&lt;question&gt;?</td>
+                        <td></td>
+                        <td></td>
+                        <td>User</td>
+                        <td>Asks the magic 8ball a question.</td>
+                    </tr>
+                    <tr>
+                        <td>{{ prefix }}roulette</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>User</td>
+                        <td>Plays Russian Roulette.</td>
+                    </tr>
+                    <tr>
+                        <td>{{ prefix }}love</td>
+                        <td>&lt;user&gt;</td>
+                        <td></td>
+                        <td></td>
+                        <td>User</td>
+                        <td>Tests love compatability between you and someone else.</td>
+                    </tr>
+                    <tr>
+                        <td>{{ prefix }}pyramid</td>
+                        <td>&lt;emoji&gt;</td>
+                        <td></td>
+                        <td></td>
+                        <td>User</td>
+                        <td>Posts pieces of an emoji pyramid in a random order.</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="6" class="align-middle">{{ prefix }}access</td>
+                        <td>{{ prefix }}help</td>
+                        <td>(user|vip|mod|admin)</td>
+                        <td></td>
+                        <td>Admin*</td>
+                        <td>Sets permissions needed to use {{ prefix }}help.</td>
+                    </tr>
+                    <tr>
+                        <td>{{ prefix }}8ball</td>
+                        <td>(user|vip|mod|admin)</td>
+                        <td></td>
+                        <td>Admin*</td>
+                        <td>Sets permissions needed to use {{ prefix }}8ball.</td>
+                    </tr>
+                    <tr>
+                        <td>{{ prefix }}roulette</td>
+                        <td>(user|vip|mod|admin)</td>
+                        <td></td>
+                        <td>Admin*</td>
+                        <td>Sets permissions needed to use {{ prefix }}roulette.</td>
+                    </tr>
+                    <tr>
+                        <td>{{ prefix }}love</td>
+                        <td>(user|vip|mod|admin)</td>
+                        <td></td>
+                        <td>Admin*</td>
+                        <td>Sets permissions needed to use {{ prefix }}love.</td>
+                    </tr>
+                    <tr>
+                        <td>{{ prefix }}pyramid</td>
+                        <td>(user|vip|mod|admin)</td>
+                        <td></td>
+                        <td>Admin*</td>
+                        <td>Sets permissions needed to use {{ prefix }}pyramid.</td>
+                    </tr>
+                    <tr>
+                        <td>&lt;custom command&gt;</td>
+                        <td>(user|vip|mod|admin)</td>
+                        <td></td>
+                        <td>Admin*</td>
+                        <td>Sets permissions needed to use a custom command.</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="5" class="align-middle">{{ prefix }}toggle</td>
+                        <td>{{ prefix }}help</td>
+                        <td>(on|off)</td>
+                        <td></td>
+                        <td>Admin*</td>
+                        <td>Enables or disables {{ prefix }}help.</td>
+                    </tr>
+                    <tr>
+                        <td>{{ prefix }}8ball</td>
+                        <td>(on|off)</td>
+                        <td></td>
+                        <td>Admin*</td>
+                        <td>Enables or disables {{ prefix }}8ball.</td>
+                    </tr>
+                    <tr>
+                        <td>{{ prefix }}roulette</td>
+                        <td>(on|off)</td>
+                        <td></td>
+                        <td>Admin*</td>
+                        <td>Enables or disables {{ prefix }}roulette.</td>
+                    </tr>
+                    <tr>
+                        <td>{{ prefix }}love</td>
+                        <td>(on|off)</td>
+                        <td></td>
+                        <td>Admin*</td>
+                        <td>Enables or disables {{ prefix }}love.</td>
+                    </tr>
+                    <tr>
+                        <td>{{ prefix }}pyramid</td>
+                        <td>(on|off)</td>
+                        <td></td>
+                        <td>Admin*</td>
+                        <td>Enables or disables {{ prefix }}pyramid.</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="6" class="align-middle">{{ prefix }}commands</td>
+                        <td>add</td>
+                        <td>&lt;command name&gt;</td>
+                        <td>&lt;command response&gt;</td>
+                        <td>Admin*</td>
+                        <td>Creates a custom command.</td>
+                    </tr>
+                    <tr>
+                        <td>edit</td>
+                        <td>&lt;command name&gt;</td>
+                        <td>&lt;command response&gt;</td>
+                        <td>Admin*</td>
+                        <td>Edits a custom command response.</td>
+                    </tr>
+                    <tr>
+                        <td>rename</td>
+                        <td>&lt;old command name&gt;</td>
+                        <td>&lt;new command name&gt;</td>
+                        <td>Admin*</td>
+                        <td>Renames a custom command.</td>
+                    </tr>
+                    <tr>
+                        <td>cooldown</td>
+                        <td>&lt;command name&gt;</td>
+                        <td>&lt;command cooldown time&gt;</td>
+                        <td>Admin*</td>
+                        <td>Sets a cooldown time for a custom command.</td>
+                    </tr>
+                    <tr>
+                        <td>delete</td>
+                        <td>&lt;command name&gt;</td>
+                        <td></td>
+                        <td>Admin*</td>
+                        <td>Deletes a custom command.</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>User*</td>
+                        <td>Lists all custom commands.</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="3" class="align-middle">{{ prefix }}aliases</td>
+                        <td>add</td>
+                        <td>&lt;alias name&gt;</td>
+                        <td>&lt;command name&gt;</td>
+                        <td>Admin*</td>
+                        <td>Creates an alias for a custom command.</td>
+                    </tr>
+                    <tr>
+                        <td>delete</td>
+                        <td>&lt;alias name&gt;</td>
+                        <td></td>
+                        <td>Admin*</td>
+                        <td>Deletes an alias for a custom command.</td>
+                    </tr>
+                    <tr>
+                        <td>list</td>
+                        <td></td>
+                        <td></td>
+                        <td>User*</td>
+                        <td>Lists all aliases for custom commands.</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="3" class="align-middle">{{ prefix }}reminders</td>
+                        <td>add</td>
+                        <td>&lt;timestamp‡&gt;</td>
+                        <td>&lt;reminder&gt;</td>
+                        <td>Admin*</td>
+                        <td>Creates a reminder.</td>
+                    </tr>
+                    <tr>
+                        <td>delete</td>
+                        <td>&lt;reminder id&gt;</td>
+                        <td></td>
+                        <td>Admin*</td>
+                        <td>Deletes a reminder.</td>
+                    </tr>
+                    <tr>
+                        <td>list</td>
+                        <td></td>
+                        <td></td>
+                        <td>User*</td>
+                        <td>Lists all reminders.</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="6" class="align-middle">{{ prefix }}perms</td>
+                        <td rowspan="6" class="align-middle">&lt;user&gt;</td>
+                        <td>admin</td>
+                        <td></td>
+                        <td>Owner*</td>
+                        <td>Gives a user admin permissions.</td>
+                    </tr>
+                    <tr>
+                        <td>mod</td>
+                        <td></td>
+                        <td>Admin*†</td>
+                        <td>Gives a user mod permissions.</td>
+                    </tr>
+                    <tr>
+                        <td>vip</td>
+                        <td></td>
+                        <td>Mod*†</td>
+                        <td>Gives a user vip permissions.</td>
+                    </tr>
+                    <tr>
+                        <td>none</td>
+                        <td></td>
+                        <td>Mod*†</td>
+                        <td>Gives a user default permissions.</td>
+                    </tr>
+                    <tr>
+                        <td>blacklisted</td>
+                        <td></td>
+                        <td>Mod*†</td>
+                        <td>Gives a user blacklisted status.</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td>Mod*</td>
+                        <td>Checks a user's permission levels.</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+            <span><em>* Cannot be changed.</em></span><br />
+            <span><em>† It is not possible to demote someone with more permissions than you.</em></span><br />
+            <span><em>‡ Example: <code>02/01/2019 19:00</code> would be 7pm on 2nd January 2019.</em></span>
+            <br />
+            <br />
+            <br />
+            <h1>String Replacements</h1>
+            <table class="table">
+                <thead>
+                    <th>String Replacement</th>
+                    <th>Description</th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>DATE()</td>
+                        <td>Posts the current date.</td>
+                    </tr>
+                    <tr>
+                        <td>TIME()</td>
+                        <td>Posts the current time.</td>
+                    </tr>
+                    <tr>
+                        <td>USER()</td>
+                        <td>Pings the user who requested the command.</td>
+                    </tr>
+                    <tr>
+                        <td>RANDUSER()</td>
+                        <td>Posts the name of a random user.</td>
+                    </tr>
+                    <tr>
+                        <td>RANDPING()</td>
+                        <td>Pings a random user.</td>
+                    </tr>
+                    <tr>
+                        <td>RANDONLINE()</td>
+                        <td>Pings a random online user.</td>
+                    </tr>
+                    <tr>
+                        <td>NUMUSERS()</td>
+                        <td>Posts the number of users in the server.</td>
+                    </tr>
+                    <tr>
+                        <td>RANDNUM(<code>x</code>,<code>y</code>)</td>
+                        <td>Posts a random integer between <code>x</code> and <code>y</code>.</td>
+                    </tr>
+                    <tr>
+                        <td>PARAM(<code>n</code>)</td>
+                        <td>Posts the <code>n</code>th argument given to the command.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

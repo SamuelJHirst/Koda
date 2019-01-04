@@ -1,0 +1,59 @@
+{
+    "permissions": {
+        "99787077444464640": 0
+    },
+    "prefix": "!",
+    "commands": [],
+    "aliases": {},
+    "reminders": [],
+    "help": {
+        "enabled": true,
+        "access": 4
+    },
+    "magic_8ball": {
+        "enabled": true,
+        "access": 4,
+        "responses": [
+            "Yes!",
+            "No!",
+            "Huh? I... wasn't listening.",
+            "I could answer that, but I'd have to ban you forever.",
+            "The answer is unclear. Trust me, I double checked.",
+            "YesNoYesNoYesNoYesNoYesNoYesNoYesNo",
+            "So, you do think I'm clever?",
+            "It's a coin flip really...",
+            "Today, it's a yes. Tommorow, it will be a no.",
+            "Maybe!",
+            "Leave it with me.",
+            "Ask the question to the nearest mirror three times, and the answer will appear.",
+            "Your answer has been posted and should arrive within the next 7 days.",
+            "Deal or no deal?",
+            "Probably not, sorry bud.",
+            "An answer to that question will cost £5. Are you paying by cash or card?",
+            "Ask again later.",
+            "Are you sure you'd like to know that answer? I don't think you are.",
+            "I doubt that.",
+            "Sure thing! I think...",
+            "Yes, the outlook is good.",
+            "I forgot the question, please repeat it.",
+            "I don't see why not.",
+            "Why would you ask that?"
+        ]
+    },
+    "roulette": {
+        "enabled": true,
+        "access": 4,
+        "rate": 0.25
+    },
+    "love": {
+        "enabled": true,
+        "access": 4,
+        "self": "That's a little tragic...",
+        "bot": "My love is endless for everyone."
+    },
+    "pyramid": {
+        "enabled": true,
+        "access": 4,
+        "levels": 5
+    }
+}
